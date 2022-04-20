@@ -8,5 +8,8 @@ DROP PROCEDURE IF EXISTS ShowPercentages $
 CREATE PROCEDURE ShowPercentages(IN id VARCHAR(4))
 BEGIN
     -- TODO: do this section
+    -- SELECT S.SID, S.LName, S.FName, S.Sec, R.AName
+    -- FROM HW4_Student AS S, HW4_RawScore
+    -- WHERE S.SID = R.RID;
 END $
 DELIMITER ;
