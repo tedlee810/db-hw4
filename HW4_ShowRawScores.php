@@ -12,7 +12,7 @@
 	echo "<h2>Student ID Raw Scores</h2><br>";
 	echo "SID: ";
 
-    // proceed with query only if supplied SID is non-empty
+	// proceed with query only if supplied SID is non-empty
 	if (empty($item)) {
 		echo "ERROR: SID ";
 		echo $item;
@@ -21,16 +21,18 @@
 	   echo $item;
 	   echo "<br><br>";
 
-       // call the stored procedure we already defined on dbase
+	   // call the stored procedure we already defined on dbase
 	   if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 
 	      echo "<table border=\"2px solid black\">";
+	      // output a row of table headers
 
-          // output a row of table headers
 	      echo "<tr>";
+
 	      // collect an array holding all attribute names in $result
 	      $flist = $result->fetch_fields();
-          // output the name of each attribute in flist
+
+	      // output the name of each attribute in flist
 	      foreach($flist as $fname){
 	         echo "<td>".$fname->name."</td>";
 	      }
