@@ -16,7 +16,7 @@
 
 	// proceed with query only if supplied SID is non-empty
 	if (empty($item)) {
-		echo "Empty input<br>";
+		echo "Empty input. Please try again.<br>";
 	} else {
 		// call the stored procedure we already defined on dbase
 		$result = $conn->query("CALL ShowRawScores('".$item."');");
@@ -50,9 +50,9 @@
 	    	}
 	    	echo "</table>";
 		} else {
-			echo "SID: ";
+			echo "ERROR: SID ";
 			echo $item;
-			echo "<br><br>";
+			echo " not found<br>";
 		}
 	}
 
