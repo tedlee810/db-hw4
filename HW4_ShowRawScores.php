@@ -42,7 +42,7 @@
 
         	// output a row of table for each row in result, using flist names
         	// to obtain the appropriate attribute value for each column
-	      	oreach($result as $row) {
+	      	foreach($result as $row) {
 
             	// reset the attribute names array
     	    	$flist = $result->fetch_fields(); 
