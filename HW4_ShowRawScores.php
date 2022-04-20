@@ -18,13 +18,10 @@
 	if (empty($item)) {
 		echo "Empty input<br>";
 	} else {
-		echo "SID: ";
-		echo $item;
-		echo "<br><br>";
-
 		// call the stored procedure we already defined on dbase
-		if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
-
+		$result = $conn->query("CALL ShowRawScores('".$item."');");
+		
+		if (mysql_num_rows($result)) {
 	    	echo "<table border=\"2px solid black\">";
 	    	// output a row of table headers
 
@@ -53,9 +50,9 @@
 	    	}
 	    	echo "</table>";
 		} else {
-			echo "ERROR: SID ";
+			echo "SID: ";
 			echo $item;
-			echo " not found<br>";
+			echo "<br><br>";
 		}
 	}
 
