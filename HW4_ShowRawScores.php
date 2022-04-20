@@ -13,7 +13,11 @@
 	echo "SID: ";
 
     // proceed with query only if supplied SID is non-empty
-	if (!empty($item)) {
+	if (empty($item)) {
+		echo "ERROR: SID ";
+		echo $item;
+		echo " not found<br>";
+	} else {
 	   echo $item;
 	   echo "<br><br>";
 
@@ -45,9 +49,7 @@
   	          echo "</tr>";
 	      }
 	      echo "</table>";
-
-          } else {
-             echo "Call to ShowRawScores failed<br>";
+		}
 	  }   
    }
 
