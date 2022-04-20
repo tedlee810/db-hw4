@@ -12,14 +12,13 @@
 	echo "<h2>Student ID Raw Scores</h2><br>";
 	echo "SID: ";
 
+	/* check validity of input */
+
 	// proceed with query only if supplied SID is non-empty
-	// if (empty($item)) {
-	// 	echo "ERROR: SID ";
-	// 	echo $item;
-	// 	echo " not found<br>";
-	// } else {
-	if (!empty($item)) {
-	   
+	if (empty($item)) {
+		echo "Empty input<br>";
+	} else {
+		echo "SID: ";
 		echo $item;
 		echo "<br><br>";
 
@@ -53,6 +52,10 @@
   	        	echo "</tr>";
 	    	}
 	    	echo "</table>";
+		} else {
+			echo "ERROR: SID ";
+			echo $item;
+			echo " not found<br>";
 		}
 	}
 
