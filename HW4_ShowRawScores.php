@@ -22,8 +22,12 @@
 	} else {
 		$q = 'select * from HW4_Student where SID = $item';
 		$res = $conn->query($q);
-		echo 'q is $q';
-		echo 'res is $res';
+		echo 'q is ';
+		echo $q;
+		echo "<br>";
+		echo 'res is ';
+		echo $res;
+		echo "<br>";
 
 		// call the stored procedure we already defined on dbase
 		if (empty($res)) {
