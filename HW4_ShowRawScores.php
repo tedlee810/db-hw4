@@ -59,7 +59,7 @@
 				}
 				echo "</table>";
 			}
-		// }	
+		}	
 	}
 
    // close the connection opened by open.php
