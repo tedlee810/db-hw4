@@ -11,7 +11,7 @@ BEGIN
     SELECT S.SID, S.LName, S.FName, S.Sec, R.Score
     FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
     ON S.SID = R.SID
-    WHERE CurPasswords = pass
+    WHERE HW4_Password.CurPasswords = pass
     ORDER BY S.Sec ASC, S.LName ASC, S.FName ASC;
 END $
 DELIMITER ;

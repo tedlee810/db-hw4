@@ -10,7 +10,7 @@ BEGIN
     -- TODO: fill this section in
     -- SELECT S.SID, S.LName, S.FName, S.Sec, CourseAvg
     -- FROM
-    -- WHERE CurPasswords = pass
+    -- WHERE HW4_Password.CurPasswords = pass
     -- ORDER BY S.Sec ASC, CourseAvg DEC, S.LName ASC, S.FName ASC;
 END $
 DELIMITER ;
