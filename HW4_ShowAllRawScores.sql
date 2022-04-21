@@ -9,9 +9,9 @@ CREATE PROCEDURE ShowAllRawScores(IN pass VARCHAR(15))
 BEGIN
     -- TODO: fill this section in
     SELECT S.SID, S.LName, S.FName, S.Sec, R.Score
-    FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+    FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R, HW4_Password AS P
     ON S.SID = R.SID
-    WHERE HW4_Password.CurPasswords = pass
+    WHERE P.CurPasswords = pass
     ORDER BY S.Sec ASC, S.LName ASC, S.FName ASC;
 END $
 DELIMITER ;
