@@ -36,7 +36,7 @@
 		// 	echo " not found<br>";
 
 		// } else {
-			if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
+			if ($result = $conn->query("CALL ShowRawScores('".$item."');") == 0) {
 				echo "<table border=\"2px solid black\">";
 				// output a row of table headers
 
@@ -64,6 +64,10 @@
 					echo "</tr>";
 				}
 				echo "</table>";
+			} else {
+				echo "ERROR: SID ";
+				echo $item;
+				echo " not found<br>";
 			}
 		// }	
 	}
