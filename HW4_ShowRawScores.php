@@ -20,16 +20,16 @@
 	if (empty($item)) {
 		echo "Empty input. Please try again.<br>";
 	} else {
-		$q = 'select * from HW4_Student where SID = $item';
-		$res = $conn->query($q);
+		// $q = 'select * from HW4_Student where SID = $item';
+		// $res = $conn->query($q);
 
-		// call the stored procedure we already defined on dbase
-		if (empty($res)) {
-			echo "ERROR: SID ";
-			echo $item;
-			echo " not found<br>";
+		// // call the stored procedure we already defined on dbase
+		// if (empty($res)) {
+		// 	echo "ERROR: SID ";
+		// 	echo $item;
+		// 	echo " not found<br>";
 
-		} else {
+		// } else {
 			if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 				echo "<table border=\"2px solid black\">";
 				// output a row of table headers
@@ -59,7 +59,7 @@
 				}
 				echo "</table>";
 			}
-		}	
+		// }	
 	}
 
    // close the connection opened by open.php
