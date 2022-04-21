@@ -20,7 +20,7 @@
 	if (empty($item)) {
 		echo "Empty input. Please try again.<br>";
 	} else {
-		$q = 'SELECT * FROM HW4_Password WHERE CurPasswords = $item';
+		$q = 'select * from HW4_Password where CurPasswords = $item';
 		$res = $conn->query($q);
 
 		// call the stored procedure we already defined on dbase

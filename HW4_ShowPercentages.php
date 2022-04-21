@@ -20,7 +20,7 @@
 	if (empty($item)) {
 		echo "Empty input. Please try again.<br>";
 	} else {
-		$q = 'SELECT * FROM HW4_Student WHERE SID = $item';
+		$q = 'select * from HW4_Student WHERE SID = $item';
 		$res = $conn->query($q);
 
 		// call the stored procedure we already defined on dbase
