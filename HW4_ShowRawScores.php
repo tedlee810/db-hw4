@@ -22,6 +22,8 @@
 	} else {
 		$q = 'select * from HW4_Student where SID = $item';
 		$res = $conn->query($q);
+		echo 'q is $q';
+		echo 'res is $res';
 
 		// call the stored procedure we already defined on dbase
 		if (empty($res)) {
@@ -29,7 +31,7 @@
 			echo $item;
 			echo " not found<br>";
 
-		// } else {
+		} else {
 			if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 				echo "<table border=\"2px solid black\">";
 				// output a row of table headers
