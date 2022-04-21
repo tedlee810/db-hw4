@@ -3,9 +3,9 @@
 
 DELIMITER $
 
-DROP PROCEDURE IF EXISTS ShowAllRawScores $
+DROP PROCEDURE IF EXISTS ShowAllCourseAverages $
 
-CREATE PROCEDURE ShowRawScores(IN pass VARCHAR(15))
+CREATE PROCEDURE ShowAllCourseAverages(IN pass VARCHAR(15))
 BEGIN
     -- TODO: fill this section in
     -- SELECT S.SID, S.LName, S.FName, S.Sec, CourseAvg

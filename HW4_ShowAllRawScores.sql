@@ -5,7 +5,7 @@ DELIMITER $
 
 DROP PROCEDURE IF EXISTS ShowAllRawScores $
 
-CREATE PROCEDURE ShowRawScores(IN pass VARCHAR(15))
+CREATE PROCEDURE ShowAllRawScores(IN pass VARCHAR(15))
 BEGIN
     -- TODO: fill this section in
     SELECT S.SID, S.LName, S.FName, S.Sec, R.Score

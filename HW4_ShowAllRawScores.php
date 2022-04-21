@@ -27,7 +27,7 @@
 		if (empty($res)) {
 			echo "ERROR: Invalid password<br>";
 		} else {
-			if ($result = $conn->query("CALL ShowAllCourseAverages('".$item."');")) {
+			if ($result = $conn->query("CALL ShowAllRawScores('".$item."');")) {
 				echo "<table border=\"2px solid black\">";
 				// output a row of table headers
 
