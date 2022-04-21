@@ -3,14 +3,15 @@
 
 DELIMITER $
 
-DROP FUNCTION IF EXISTS ShowAllRawScores $
+DROP PROCEDURE IF EXISTS ShowAllRawScores $
 
-CREATE FUNCTION ShowRawScores(CurPasswords VARCHAR(15)) RETURNS VOID
+CREATE PROCEDURE ShowRawScores(IN pass VARCHAR(15))
 BEGIN
     -- TODO: fill this section in
-    -- SELECT S.SID, S.LName, S.FName, S.Sec
-    -- FROM HW4_Student AS S, HW4_RawScore, HW4_Assignment
-    -- WHERE
-    -- ORDER BY ASC S.Sec, S.LName, S.FName;
+    SELECT S.SID, S.LName, S.FName, S.Sec, R.Score
+    FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+    ON S.SID = R.SID
+    WHERE CurPasswords = pass
+    ORDER BY S.Sec ASC, S.LName ASC, S.FName ASC;
 END $
 DELIMITER ;
