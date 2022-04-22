@@ -7,23 +7,17 @@ DROP PROCEDURE IF EXISTS ShowPercentages $
 
 CREATE PROCEDURE ShowPercentages(IN id VARCHAR(4))
 BEGIN
-    -- SELECT IFNULL(columnName, 0) AS colName FROM tableName;
-    -- SELECT IFNULL(Score, 0) AS Score2 FROM HW4_RawScore;
-
-    -- TODO: figure out how to weigh grades
-    -- make a temporary view?
-
     DROP VIEW IF EXISTS Quizzes;
     DROP VIEW IF EXISTS Exams;
 
     CREATE VIEW Quizzes AS
-    SELECT R.SID, R.AName, (R.Score / A.PtsPoss * 100) AS Score
+    SELECT R.SID, R.AName, ROUND((R.Score / A.PtsPoss * 100), 2) AS Score
     FROM HW4_Assignment AS A RIGHT OUTER JOIN HW4_RawScore AS R
     ON A.AName = R.AName
     WHERE A.AType = 'QUIZ';
 
     CREATE VIEW Exams AS
-    SELECT R.SID, R.AName, (R.Score / A.PtsPoss * 100) AS Score
+    SELECT R.SID, R.AName, ROUND((R.Score / A.PtsPoss * 100), 2) AS Score
     FROM HW4_Assignment AS A RIGHT OUTER JOIN HW4_RawScore AS R
     ON A.AName = R.AName
     WHERE A.AType = 'EXAM';
