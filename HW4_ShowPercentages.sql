@@ -34,7 +34,7 @@ BEGIN
         ON R.AName = A.AName)
     SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Percent
     FROM HW4_Student AS S, HW4_RawScore AS R, Percentages AS P, Quizzes, Exams
-    WHERE S.SID = R.SID;
+    WHERE S.SID = R.SID AND Quizzes.SID = S.SID AND Exams.SID = S.SID;
 
 END $
 DELIMITER ;
