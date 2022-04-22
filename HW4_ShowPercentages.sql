@@ -33,9 +33,9 @@ BEGIN
     --     FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS A
     --     ON R.AName = A.AName)
     SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2), ROUND(( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2) AS CourseAvg
-    FROM Quizzes, Exams, HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+    FROM Quizzes, Exams, HW4_Assignment AS A, HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
     ON S.SID = R.SID
-    WHERE Quizzes.SID = S.SID AND Exams.SID = S.SID;
+    WHERE S.SID = A.SID AND Quizzes.SID = S.SID AND Exams.SID = S.SID;
 
 END $
 DELIMITER ;
