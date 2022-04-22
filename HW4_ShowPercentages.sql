@@ -13,6 +13,9 @@ BEGIN
     -- TODO: figure out how to weigh grades
     -- make a temporary view?
     
+    DROP VIEW Quizzes;
+    DROP VIEW Exams;
+
     CREATE VIEW Quizzes AS
     SELECT R.SID, R.AName, R.Score
     FROM HW4_Assignment AS A LEFT OUTER JOIN HW4_RawScore AS R
@@ -33,7 +36,5 @@ BEGIN
     FROM HW4_Student AS S, HW4_RawScore AS R
     WHERE S.SID = R.RID AND Quizzes.SID = S.SID AND Exams.SID = S.SID;
 
-    DROP VIEW Quizzes;
-    DROP VIEW Exams;
 END $
 DELIMITER ;
