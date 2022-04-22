@@ -9,18 +9,18 @@ DROP PROCEDURE IF EXISTS ShowRawScores $
 
 CREATE PROCEDURE ShowRawScores(IN id VARCHAR(4))
 BEGIN
-    -- SELECT X.SID, X.LName, X.FName, X.Sec, X.AName, X.Score
-    -- FROM HW4_Assignment AS A RIGHT OUTER JOIN
-    --     (SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, R.Score
-    --     FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
-    --     ON S.SID = R.SID
-    --     WHERE S.SID = id) AS X
-    -- ON A.AName = X.AName;
+    SELECT X.S.SID, X.S.LName, X.S.FName, X.S.Sec, X.R.AName, X.R.Score
+    FROM HW4_Assignment AS A RIGHT OUTER JOIN
+        (SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, R.Score
+        FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+        ON S.SID = R.SID
+        WHERE S.SID = id) AS X
+    ON A.AName = X.AName;
 
-    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, R.Score
-    FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
-    ON S.SID = R.SID
-    WHERE S.SID = id;
+    -- SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, R.Score
+    -- FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+    -- ON S.SID = R.SID
+    -- WHERE S.SID = id;
 
     -- SET @sql = NULL;
 
