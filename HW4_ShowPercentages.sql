@@ -29,7 +29,7 @@ BEGIN
     WITH Percentages AS
         (SELECT SID, AName, Score
         FROM Quizzes AS Q, Exams AS E
-        ON Q.SID = E.SID)
+        WHERE Q.SID = E.SID)
     SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND(( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2) AS CourseAvg
     FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
     ON S.SID = R.SID,
