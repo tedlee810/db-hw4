@@ -30,10 +30,13 @@ BEGIN
 
     WITH Percentages AS
         (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Grade
-        FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS A
+        FROM HW4_RawScore AS R RIGHT OUTER JOIN HW4_Assignment AS A
         ON R.AName = A.AName)
-    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND(( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2) AS CourseAvg
+    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND( ((SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2 ) AS CourseAvg
     FROM HW4_Student AS S, HW4_RawScore AS R, Percentages AS P, Quizzes, Exams
     WHERE S.SID = R.SID AND Quizzes.SID = S.SID AND Exams.SID = S.SID AND S.SID = id;
+
+    -- CourseAvg for '3774' should be 80.18
+
 END $
 DELIMITER ;
