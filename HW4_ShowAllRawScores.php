@@ -6,7 +6,7 @@
 	include 'open.php';
 
 	// collect the posted value in a variable called $item
-	$item = $_POST['CurPasswords'];
+	$item = $_POST['password'];
 
 	// echo some basic header info onto the page
 	echo "<h2>Password All Raw Scores</h2><br>";
