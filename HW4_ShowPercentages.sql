@@ -26,7 +26,7 @@ BEGIN
         (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Grade
         FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS A
         ON R.AName = A.AName)
-    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND(( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2) AS CourseAvg
+    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND(( (SUM(Q.Score) / COUNT(Q.Score)) * 0.4 + (SUM(E.Score) / COUNT(E.Score)) * 0.6 ), 2) AS CourseAvg
     FROM HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
     ON S.SID = R.SID,
     Percentages AS P, Quizzes AS Q, Exams AS E
