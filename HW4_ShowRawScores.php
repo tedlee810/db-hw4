@@ -20,7 +20,7 @@
 	if (empty($item)) {
 		echo "Empty input. Please try again.<br>";
 	} else {
-		$q = "select * from HW4_Student where SID = '".$item."'";
+		$q = "select * from HW4_Student where SID = ".$item."";
 		echo $q;
 		echo "<br><br>";
 		$res = $conn->query($q);
