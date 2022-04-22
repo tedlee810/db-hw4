@@ -28,13 +28,14 @@ BEGIN
     ON A.AName = R.AName
     WHERE A.AType = 'EXAM';
 
-    WITH Percentages AS
-        (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Percent
-        FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS A
-        ON R.AName = A.AName)
-    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Percent
-    FROM HW4_Student AS S, HW4_RawScore AS R, Percentages AS P, Quizzes, Exams
-    WHERE S.SID = R.SID AND Quizzes.SID = S.SID AND Exams.SID = S.SID;
+    -- WITH Percentages AS
+    --     (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Percent
+    --     FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS A
+    --     ON R.AName = A.AName)
+    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2), ROUND(( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2) AS CourseAvg
+    FROM Quizzes, Exams, HW4_Student AS S LEFT OUTER JOIN HW4_RawScore AS R
+    ON S.SID = R.SID
+    WHERE Quizzes.SID = S.SID AND Exams.SID = S.SID;
 
 END $
 DELIMITER ;
