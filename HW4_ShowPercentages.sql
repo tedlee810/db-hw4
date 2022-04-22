@@ -25,12 +25,11 @@ BEGIN
     ON A.AName = R.AName
     WHERE A.AType = 'EXAM';
 
-    WITH P AS (
-        SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Percent
+    WITH Percent AS
+        (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Percent
         FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS AName
-        ON R.AName = A.AName
-    )
-    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Percent, ( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ) AS CourseAvg
+        ON R.AName = A.AName)
+    SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, Percent, ( (SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ) AS CourseAvg
     FROM HW4_Student AS S, HW4_RawScore AS R
     WHERE S.SID = R.RID AND Quizzes.SID = S.SID AND Exams.SID = S.SID;
 
