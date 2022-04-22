@@ -32,8 +32,5 @@ BEGIN
     Percentages AS P, Quizzes AS Q, Exams AS E
     WHERE P.SID = S.SID AND P.AName = R.AName AND Q.SID = S.SID AND E.SID = S.SID AND S.SID = id
     GROUP BY R.AName;
-
-    -- CourseAvg for '3774' should be 80.18
-
 END $
 DELIMITER ;
