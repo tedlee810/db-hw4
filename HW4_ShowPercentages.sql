@@ -28,7 +28,7 @@ BEGIN
     ON A.AName = R.AName
     WHERE A.AType = 'EXAM';
 
-    WITH Percent AS
+    WITH Percentages AS
         (SELECT R.SID, R.AName, ROUND((100 * IFNULL(R.Score, 0) / PtsPoss), 2) AS Percent
         FROM HW4_RawScore AS R LEFT OUTER JOIN HW4_Assignment AS AName
         ON R.AName = A.AName)
