@@ -18,13 +18,13 @@ BEGIN
 
     CREATE VIEW Quizzes AS
     SELECT R.SID, R.AName, R.Score
-    FROM HW4_Assignment AS A LEFT OUTER JOIN HW4_RawScore AS R
+    FROM HW4_Assignment AS A RIGHT OUTER JOIN HW4_RawScore AS R
     ON A.AName = R.AName
     WHERE A.AType = 'QUIZ';
 
     CREATE VIEW Exams AS
     SELECT R.SID, R.AName, R.Score
-    FROM HW4_Assignment AS A LEFT OUTER JOIN HW4_RawScore AS R
+    FROM HW4_Assignment AS A RIGHT OUTER JOIN HW4_RawScore AS R
     ON A.AName = R.AName
     WHERE A.AType = 'EXAM';
 
