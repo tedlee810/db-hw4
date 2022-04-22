@@ -21,6 +21,7 @@
 		echo "Empty input. Please try again.<br>";
 	} else {
 		$q = "select * from HW4_Student where SID = '".$item."'";
+		echo $q;
 		$res = $conn->query($q);
 
 		// call the stored procedure we already defined on dbase
