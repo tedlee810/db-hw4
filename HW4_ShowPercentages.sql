@@ -34,7 +34,7 @@ BEGIN
         ON R.AName = A.AName)
     SELECT S.SID, S.LName, S.FName, S.Sec, R.AName, P.Grade, ROUND( ((SUM(Quizzes.Score) / COUNT(Quizzes.Score)) * 0.4 + (SUM(Exams.Score) / COUNT(Exams.Score)) * 0.6 ), 2 ) AS CourseAvg
     FROM HW4_Student AS S, HW4_RawScore AS R, Percentages AS P, Quizzes, Exams
-    WHERE S.SID = R.SID AND Quizzes.SID = S.SID AND Exams.SID = S.SID AND S.SID = id;
+    WHERE S.SID = R.SID AND Quizzes.SID = S.SID;
 
     -- CourseAvg for '3774' should be 80.18
 
