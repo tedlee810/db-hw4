@@ -24,7 +24,7 @@
 		$res = $conn->query($q);
 
 		// call the stored procedure we already defined on dbase
-		if (is_null(mysqli_fetch_row($res))) {
+		if (!(mysql_fetch_rows($res))) {
 			echo "ERROR: SID ";
 			echo $item;
 			echo " not found<br>";
