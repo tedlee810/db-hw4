@@ -29,7 +29,7 @@
 			echo $item;
 			echo " not found<br>";
 
-		} else {`
+		} else {
 			if ($result = $conn->query("CALL ShowRawScores('".$item."');")) {
 				echo "<table border=\"2px solid black\">";
 				// output a row of table headers
