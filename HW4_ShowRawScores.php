@@ -22,7 +22,7 @@
 	} else {
 		$q = "select * from HW4_Student where SID = '".$item."'";
 		$res = $conn->query($q);
-		echo $res;
+
 		// call the stored procedure we already defined on dbase
 		if (is_null(mysqli_fetch_row($res))) {
 			echo "ERROR: SID ";
