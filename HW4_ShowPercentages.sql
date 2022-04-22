@@ -37,7 +37,7 @@ BEGIN
     ON S.SID = R.SID,
     Percentages AS P, Quizzes, Exams
     WHERE P.SID = S.SID AND P.AName = R.AName AND Quizzes.SID = S.SID AND Exams.SID = S.SID AND S.SID = id
-    GROUP BY R.AName, CourseAvg;
+    GROUP BY R.AName;
 
     -- CourseAvg for '3774' should be 80.18
 
