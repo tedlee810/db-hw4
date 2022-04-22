@@ -20,11 +20,11 @@
 	if (empty($item)) {
 		echo "Empty input. Please try again.<br>";
 	} else {
-		$q = 'select * from HW4_Student WHERE SID = $item';
+		$q = "select * from HW4_Student WHERE SID = '".$item."'";
 		$res = $conn->query($q);
 
 		// call the stored procedure we already defined on dbase
-		if (empty($res)) {
+		if (is_null(mysqli_fetch_row($res))) {
 			echo "ERROR: SID ";
 			echo $item;
 			echo " not found<br>";
