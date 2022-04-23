@@ -32,7 +32,7 @@ BEGIN
     ON S.SID = R.SID,
     Percentages AS P, HW4_Password AS Pass, Quizzes AS Q, Exams AS E
     WHERE P.SID = S.SID AND P.AName = R.AName AND Q.SID = S.SID AND E.SID = S.SID AND Pass.CurPasswords = pw
-    GROUP BY R.AName
+    GROUP BY R.SID
     ORDER BY S.Sec ASC, CourseAvg DESC, S.LName ASC, S.FName ASC;
     -- SELECT S.SID, S.LName, S.FName, S.Sec, CourseAvg
     -- FROM
