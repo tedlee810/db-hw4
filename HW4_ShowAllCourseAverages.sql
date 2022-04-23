@@ -33,7 +33,7 @@ BEGIN
     Percentages AS P, HW4_Password AS Pass, Quizzes AS Q, Exams AS E
     WHERE P.SID = S.SID AND P.AName = R.AName AND Q.SID = S.SID AND E.SID = S.SID AND Pass.CurPasswords = pw
     GROUP BY R.AName
-    ORDER BY S.Sec ASC, CourseAvg DEC, S.LName ASC, S.FName ASC;
+    ORDER BY S.Sec ASC, CourseAvg DESC, S.LName ASC, S.FName ASC;
     -- SELECT S.SID, S.LName, S.FName, S.Sec, CourseAvg
     -- FROM
     -- WHERE HW4_Password.CurPasswords = pass
