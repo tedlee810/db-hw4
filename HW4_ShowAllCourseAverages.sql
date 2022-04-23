@@ -7,7 +7,6 @@ DROP PROCEDURE IF EXISTS ShowAllCourseAverages $
 
 CREATE PROCEDURE ShowAllCourseAverages(IN pw VARCHAR(15))
 BEGIN
-    -- TODO: fill this section in
     DROP VIEW IF EXISTS Quizzes;
     DROP VIEW IF EXISTS Exams;
 
@@ -34,9 +33,5 @@ BEGIN
     WHERE P.SID = S.SID AND P.AName = R.AName AND Q.SID = S.SID AND E.SID = S.SID AND Pass.CurPasswords = pw
     GROUP BY R.SID
     ORDER BY S.Sec ASC, CourseAvg DESC, S.LName ASC, S.FName ASC;
-    -- SELECT S.SID, S.LName, S.FName, S.Sec, CourseAvg
-    -- FROM
-    -- WHERE HW4_Password.CurPasswords = pass
-    -- ORDER BY S.Sec ASC, CourseAvg DEC, S.LName ASC, S.FName ASC;
 END $
 DELIMITER ;
